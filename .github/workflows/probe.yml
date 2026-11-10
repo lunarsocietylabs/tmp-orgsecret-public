@@ -1,0 +1,14 @@
+name: probe
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - env:
+          O: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          echo "org_len=${#O}"
